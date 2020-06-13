@@ -1,0 +1,31 @@
+add sudo if no permission
+
+You can use two commands on your Raspberry Pi for removing directories. The first one, rmdir, is the safer of the two because it refuses to remove directories that still have files or directories inside them. Use it with the name of the directory you want to remove — for example, books, — like this:
+
+rmdir bookssss
+
+If you want to prune a whole branch of the directory tree, you can use the rm command to remove a directory and delete anything inside it and its subdirectories. Used with the recursive option (-R), it works its way down the directory tree, and with the force option (-f), it deletes any files in its way. It’s a rampaging beast of a command. Here’s an example:
+
+rm –Rf books
+
+add sudo
+
+It acts silently and swiftly, deleting the books directory and anything in it.
+
+You can add the interactive option to cut the risk, which prompts you for confirmation of each deletion, as you can see in this example where we’ve left a file in the folder work/writing/books:
+
+pi@raspberrypi ~ $ rm @@enRfi work
+
+rm: descend into directory 'work'? Y
+
+rm: descend into directory 'work/writing'? Y
+
+rm: descend into directory 'work/writing/books'? Y
+
+rm: remove regular file 'work/writing/books/rapidplan.txt'? Y
+
+rm: remove directory 'work/writing/books'? Y
+
+rm: remove directory 'work/writing'? Y
+
+rm: remove directory 'work'? Y

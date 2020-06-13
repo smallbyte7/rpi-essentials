@@ -1,0 +1,41 @@
+sudo apt-get install transmission-daemon 
+
+sudo nano /etc/transmission-daemon/settings.json 
+
+"incomplete-dir": "/mnt/mydisk/Torrent/InProgress", 
+"incomplete-dir-enabled": true, 
+"download-dir": "/mnt/mydisk/Torrent/Complete", 
+"rpc-password": "**********", 
+"rpc-username": "pi", 
+"rpc-whitelist": "192.168.*.*,127.0.0.1", 
+
+
+sudo service transmission-daemon reload 
+
+sudo service transmission-daemon start 
+
+
+
+
+
+
+
+
+
+--- give permission
+
+
+Assuming the path to the download folder is /home/chen/TV shows, run the following:
+
+add chen to the debian-transmission group
+
+sudo usermod -a -G debian-transmission chen
+change the folder ownership
+
+sudo chgrp debian-transmission /home/chen/TV\ shows
+grant write access to the group
+
+sudo chmod 770 /home/chen/TV\ shows
+Stop the deamon with
+
+sudo service transmission-daemon stop
